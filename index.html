@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue & Wild Network | Water & Wildlife Conservation</title>
+    <style>
+        /* CSS Variables for Consistent Theming */
+        :root {
+            --primary-blue: #0077b6;
+            --dark-blue: #023e8a;
+            --light-blue: #ade8f4;
+            --accent-green: #2a9d8f;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(2, 62, 138, 0.7), rgba(42, 157, 143, 0.7)), url('https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* Container for padding */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            color: var(--light-blue);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Initiatives Section */
+        .initiatives-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--light-blue);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--light-blue);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-section h2 {
+            color: var(--dark-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            padding: 4rem 5%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-grid h4 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #cccccc;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .initiatives-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In a real site, implement a hamburger menu here */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .initiatives-grid, .stats-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Blue & Wild Network</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#initiatives">Initiatives</a></li>
+            <li><a href="#get-involved">Get Involved</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Protect Our Waters, Preserve Our Wildlife</h1>
+        <p>Join the global movement to create a sustainable world through water conservation, habitat protection, and community action.</p>
+        <a href="#get-involved" class="btn">Join Our Network</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="container about-section" id="about">
+        <div>
+            <h2>About Blue & Wild Network</h2>
+            <p>We are a global community dedicated to protecting the Earth's vital water resources and the diverse animal species that depend on them.</p>
+            
+            <h3>Our Mission</h3>
+            <p>Blue & Wild Network is committed to creating a sustainable future by purifying waterways, fighting habitat loss, protecting endangered species, and empowering communities to take environmental action.</p>
+            
+            <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries. Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing ecological challenges of our time.</p>
+            
+            <br>
+            <a href="#learn-more" class="btn">Learn More</a>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1541781286377-50b523ce196c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sea turtle swimming in clear blue ocean water" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>15M+</h3>
+                <p>Gallons of Water Saved</p>
+            </div>
+            <div class="stat-item">
+                <h3>50,000</h3>
+                <p>Active Members</p>
+            </div>
+            <div class="stat-item">
+                <h3>120</h3>
+                <p>Countries Reached</p>
+            </div>
+            <div class="stat-item">
+                <h3>8,500+</h3>
+                <p>Animals Rescued</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section class="container" id="initiatives">
+        <div class="initiatives-header">
+            <h2>Our Initiatives</h2>
+            <p>Discover the key programs and projects we're implementing to protect our aquatic ecosystems and wildlife.</p>
+        </div>
+        
+        <div class="initiatives-grid">
+            <!-- Initiative 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Endangered sea turtle" class="card-img">
+                <div class="card-content">
+                    <h3>Marine & Wildlife Protection</h3>
+                    <p>Protecting fragile marine ecosystems, reducing plastic pollution, and defending vulnerable land and sea animals from poaching and habitat destruction.</p>
+                    <a href="#marine-conservation">Learn More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Initiative 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clear mountain river stream" class="card-img">
+                <div class="card-content">
+                    <h3>Watershed Conservation</h3>
+                    <p>Cleaning up rivers and lakes, preventing toxic industrial runoff, and restoring natural watersheds to ensure safe drinking water for communities and wildlife.</p>
+                    <a href="#water-conservation">Learn More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Initiative 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Volunteers cleaning up a beach" class="card-content card-img" style="padding:0;">
+                <div class="card-content">
+                    <h3>Global Cleanups</h3>
+                    <p>Organizing massive community-led cleanup efforts on beaches, riverbanks, and forests to remove harmful plastics and restore natural habitats.</p>
+                    <a href="#cleanups">Learn More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" id="get-involved">
+        <h2>Join Our Global Movement</h2>
+        <p style="max-width: 600px; margin: 0 auto 2rem;">Together, we can create a sustainable future for generations to come. Every action counts, whether it's conserving water at home or volunteering to protect local wildlife.</p>
+        <a href="#join" class="btn">Become a Member</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="color: white; margin-bottom: 1rem;">Blue & Wild Network</div>
+                <p>We are dedicated to protecting our planet's vital water resources and vulnerable wildlife through collaborative action, education, and sustainable solutions.</p>
+            </div>
+            
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#initiatives">Initiatives</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Our Programs</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Ocean Cleanup</a></li>
+                    <li><a href="#">River Restoration</a></li>
+                    <li><a href="#">Wildlife Rescue</a></li>
+                    <li><a href="#">Habitat Protection</a></li>
+                    <li><a href="#">Water Education</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Contact Us</h4>
+                <ul class="footer-links">
+                    <li>123 Oceanview Drive, Seattle, WA</li>
+                    <li>+1 (312) 555-0198</li>
+                    <li>support@bluewildnetwork.org</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2026 Blue & Wild Network. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
